@@ -1,0 +1,85 @@
+<header>
+    <div class="container">
+        <div class="header-data">
+            <nav>
+                <ul>
+                    <li>
+                        <a routerLink="/user-field">
+                            <span><img src="../../assets/icon1.png" alt=""></span> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/search-friend">
+                            <span><img src="../../assets/icon4.png" alt=""></span> Friends
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/changepassword">
+                            <span><img src="../../assets/icon6.png" alt=""></span> Change Password
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <a routerLink="/" (click)="togglePage()">Log Out</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="main-user col-lg-3 col-md-4 pd-left-none no-pd">
+    <div class="main-left-sidebar no-margin">
+        <div class="user-profile">
+            <div class="username-dt">
+                <div class="usr-pic">
+                    <img src={{src}} id="profilePic">
+                </div>
+            </div>
+
+            <div class="user-specs">
+                <h3>{{user.firstName}} {{user.lastName}}</h3>
+            </div>
+        </div>
+        <div class="user-fw-status">
+            <div>
+                <p>Email</p>
+                <span>{{user.email}}</span>
+            </div>
+            <div>
+                <p>Address</p>
+                <span>{{user.address}}</span>
+            </div>
+            <div id="pic-upload">
+                Upload Profile Picture: <input type="file" id="fileUpload" (change)="uploadFile($event)">
+            </div>
+            <div id="update-button">
+                <button routerLink="/update-form">Update Profile</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row table-view-sec">
+    <div class="filterSort">
+        <input id="myInput" type="text" (input)="searchTable()" placeholder="Search..." />
+    </div>
+
+    <div class="table-view" *ngIf="myresponse">
+        <table id="myTable" class="table table-bordered table-responsive-md sortable">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>View Profile</th>
+                </tr>
+            </thead>
+            <tbody class="table-view-body">
+                <tr *ngFor="let user of myresponse">
+                    <td>{{user.firstName}}</td>
+                    <td id="tdl">{{user.lastName}}</td>
+                    <td><button type="submit" value="submit" id="button" (click)="viewProfile(user)">View Profile</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

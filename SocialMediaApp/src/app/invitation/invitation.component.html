@@ -1,0 +1,90 @@
+<header>
+    <div class="container">
+        <div class="header-data">
+            <nav>
+                <ul>
+                    <li>
+                        <a routerLink="/user-field">
+                            <span><img src="../../assets/icon1.png" alt=""></span> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/search-friend">
+                            <span><img src="../../assets/icon4.png" alt=""></span> Friends
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/invitation">
+                            <span><img src="../../assets/icon7.png" alt=""></span> Invitation
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/changepassword">
+                            <span><img src="../../assets/icon6.png" alt=""></span> Change Password
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <a routerLink="/" (click)="togglePage()">Log Out</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="main-user col-lg-3 col-md-4 pd-left-none no-pd">
+    <div class="main-left-sidebar no-margin">
+        <div class="user-profile">
+            <div class="username-dt">
+                <div class="usr-pic">
+                    <img src="../../assets/user.png">
+                </div>
+            </div>
+
+            <div class="user-specs">
+                <h3>John Doeh</h3>
+                <span> Online </span>
+            </div>
+        </div>
+        <div class="user-fw-status">
+            <div>
+                <p>Following</p>
+                <span>34</span>
+            </div>
+            <div>
+                <p>Following</p>
+                <span>34</span>
+            </div>
+            <div>
+                <a class="view_profile">View Profile</a>
+            </div>
+            <div>
+                Upload File: <input type="file" id="fileUpload" (change)="uploadFile($event)">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="table-view-invitatation" *ngIf="myresponse">
+    <table id="myTable" class="table table-bordered table-responsive-md sortable">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Invitation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of myresponse">
+                <td>{{user.firstName}}</td>
+                <td id="tdl">{{user.lastName}}</td>
+                <td>
+                    <div class="row invite">
+                        <button type="submit" value="submit" id="button1" (input)="Accept()"></button>
+                        <button type="submit" value="submit" id="button2" (input)="Ignore()"></button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

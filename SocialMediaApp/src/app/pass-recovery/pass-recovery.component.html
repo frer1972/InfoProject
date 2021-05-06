@@ -1,0 +1,19 @@
+<div class="main-sec">
+    <div class="sign_in_sec current">
+        <h3>Password Recovery</h3>
+        <form>
+            <div class="row">
+                <div class="col-lg-12 no-pdd">
+                    <p style="font-size: 1.2em;">Please enter your Email for password recovery</p>
+                    <div class="sn-field">
+                        <input type="email" name="email" placeholder="email@gmail.com" required autocomplete="off" [(ngModel)]="user.email">
+                        <i class="la la-user"></i>
+                    </div>
+                </div>
+                <div class="col-lg-12 no-pdd">
+                    <button type="submit" (click)="requetP()" value="submit" id="button">Commit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

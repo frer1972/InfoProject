@@ -1,0 +1,70 @@
+<header>
+        <div class="container">
+            <div class="header-data">
+                <nav>
+                    <ul>
+                        <li>
+                            <a routerLink="/user-field">
+                                <span><img src="../../assets/icon1.png"></span> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/search-friend">
+                                <span><img src="../../assets/icon4.png"></span> Friends
+    
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/changepassword">
+                                <span><img src="../../assets/icon6.png"></span> Change Password
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="user-info">
+                    <a routerLink="/" (click)="togglePage()">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="main-user col-lg-3 col-md-4 pd-left-none no-pd">
+        <div class="main-left-sidebar no-margin">
+            <div class="user-profile">
+                <div class="username-dt">
+                    <div class="usr-pic">
+                        <img src={{src}} id="profilePic">
+                    </div>
+                </div>
+    
+                <div class="user-specs">
+                    <h3>{{user.firstName}} {{user.lastName}}</h3>
+                </div>
+            </div>
+            <div class="user-fw-status">
+                <div>
+                    <p>Email</p>
+                    <span>{{user.email}}</span>
+                </div>
+                <div>
+                    <p>Address</p>
+                    <span>{{user.address}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="posts-section">
+        <div class="posts-section-int">
+            <ul>
+                <li *ngFor="let posts of tDatas">
+                    <div class="text_descp">
+                        <!-- <span> -->
+                        <p id="post-username">{{posts.owner.firstName}} {{posts.owner.lastName}}: </p>
+                        <p id="post-content">{{ posts.content }}</p>
+                        <!-- </span> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>

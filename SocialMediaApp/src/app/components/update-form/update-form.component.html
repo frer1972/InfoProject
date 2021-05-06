@@ -1,0 +1,96 @@
+<header>
+    <div class="container">
+        <div class="header-data">
+            <nav>
+                <ul>
+                    <li>
+                        <a routerLink="/user-field">
+                            <span><img src="../../assets/icon1.png"></span> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/search-friend">
+                            <span><img src="../../assets/icon4.png"></span> Friends
+
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/changepassword">
+                            <span><img src="../../assets/icon6.png"></span> Change Password
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <a routerLink="/" (click)="togglePage()">Log Out</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- <div class="main-user col-lg-3 col-md-4 pd-left-none no-pd">
+    <div class="main-left-sidebar no-margin">
+        <div class="user-profile">
+            <div class="username-dt">
+                <div class="usr-pic">
+                    <img src={{src}} id="profilePic">
+                </div>
+            </div>
+
+            <div class="user-specs">
+                <h3>{{user.firstName}} {{user.lastName}}</h3>
+            </div>
+        </div>
+        <div class="user-fw-status">
+            <div>
+                <p>Email</p>
+                <span>{{user.email}}</span>
+            </div>
+            <div>
+                <p>Address</p>
+                <span>{{user.address}}</span>
+            </div>
+            <div id="pic-upload">
+                Upload Profile Picture: <input type="file" id="fileUpload" (change)="uploadFile($event)">
+            </div>
+            <div id="update-button">
+                <button routerLink="/update-form">Update Profile</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div *ngIf="myresponse" class="change_pass_sec">
+    <h3>Update Your Profile Here</h3>
+    <form>
+        <div class="row pass_sec">
+            <div class="col-lg-12 no-pdd">
+                <div class="sn-field2">
+                    <input type="text" name="firstname" placeholder="Enter New First Name" required autocomplete="off" [(ngModel)]="myresponse.firstName">
+                    <i class="la la-user"></i>
+                </div>
+            </div>
+            <div class="col-lg-12 no-pdd">
+                <div class="sn-field2">
+                    <input type="text" name="lastname" placeholder="Enter New Last Name" required autocomplete="off" [(ngModel)]="myresponse.lastName">
+                    <i class="la la-user"></i>
+                </div>
+            </div>
+            <div class="col-lg-12 no-pdd">
+                <div class="sn-field2">
+                    <input type="email" name="email" placeholder="Enter New Email" required autocomplete="off" [(ngModel)]="myresponse.email">
+                    <i class="la la-lock"></i>
+                </div>
+            </div>
+            <div class="col-lg-12 no-pdd">
+                <div class="sn-field2">
+                    <input type="text" name="address" placeholder="Enter New Address" required autocomplete="off" [(ngModel)]="myresponse.address">
+                    <i class="la la-globe"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 no-pdd">
+            <button type="button" id="button_change_pass" (click)="updateProfile()" [disabled]="!RequestRestForm.valid">Update</button>
+        </div>
+    </form>
+</div>
